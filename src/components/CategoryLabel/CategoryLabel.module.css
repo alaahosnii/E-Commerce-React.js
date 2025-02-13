@@ -1,0 +1,10 @@
+.categoryLabel {
+    color: rgba(219, 68, 68, 1);
+    margin-top: 150px;
+}
+
+.redCard {
+    height: 40px;
+    width: 20px;
+    background-color: rgba(219, 68, 68, 1);
+}

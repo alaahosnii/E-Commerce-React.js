@@ -1,0 +1,19 @@
+.navBar {
+    height: 100px;
+    /* background-color: red; */
+}
+.navBarDark {
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+.navActive {
+    text-Decoration: none;
+    border-Bottom: 1px solid black;
+    color: black
+}
+
+.navDefault {
+    text-Decoration: none;
+    color: black
+}
