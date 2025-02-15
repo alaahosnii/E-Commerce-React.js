@@ -4,10 +4,16 @@ import styles from './NavComponent.module.css';
 import searchIcon from '../../assets/search_icon.png';
 import loveIcon from '../../assets/love_icon.png';
 import cartIcon from '../../assets/cart_icon.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/ThemeModeContext';
+import { useSelector } from 'react-redux';
+
 function NavComponent() {
   const { theme } = useContext(ThemeContext);
+  const cartState = useSelector((state) => state.cart);
+  const favoriteState = useSelector((state) => state.favorite);
+
+  const navigate = useNavigate();
   return (
     <div className={`p-4 d-flex justify-content-between align-items-center ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>
       <h1>Exclusive</h1>
@@ -29,8 +35,18 @@ function NavComponent() {
           <input type="text" placeholder='What are you looking for?' />
           <img src={searchIcon} className='searchImg' />
         </div>
-        <img src={loveIcon} height={"16px"} width={"16px"} />
-        <img src={cartIcon} height={"25px"} width={"25px"} />
+        <div className='btn position-relative' onClick={() => navigate("/wishlist")}>
+          <img src={loveIcon} height={"16px"} width={"16px"} />
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {favoriteState.products.length}
+          </span>
+        </div>
+        <div className='btn position-relative' onClick={() => navigate("/cart")}>
+          <img src={cartIcon} height={"25px"} width={"25px"} />
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {cartState.totalQuantity}
+          </span>
+        </div>
       </div>
 
     </div>

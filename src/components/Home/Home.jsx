@@ -6,6 +6,7 @@ import Spacer from '../Spacer/Spacer'
 import coverImg from '../../assets/cover_img.png'
 import CategoryLabel from '../CategoryLabel/CategoryLabel'
 import ProductComponent from '../ProductComponent/ProductComponent'
+import products from '../../Products'
 function Home() {
   return (
     <div className='d-flex flex-column container'>
@@ -20,19 +21,9 @@ function Home() {
       </div>
       <CategoryLabel categoryName={"Our Products"} description={"Explore Our Products"} />
       <div className='d-flex flex-wrap   justify-content-between'>
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-        <ProductComponent />
-
+        {
+          products.map((product) => <ProductComponent key={product.id} product={product} />)
+        }
       </div>
     </div>
   )

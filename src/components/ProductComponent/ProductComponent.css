@@ -1,0 +1,27 @@
+.addToCartBox{
+    height: 40px;
+    cursor: pointer;
+    visibility: hidden;
+}
+.addToCartBoxInWishlist{
+    height: 40px;
+    cursor: pointer;
+    visibility: visible;
+}
+.productImgContainer {
+    background-color: rgba(245, 245, 245, 1);
+    width: 270px;
+    height: 250px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+
+
+.productImgContainer:hover .addToCartBox{
+    visibility: visible;
+    
+}

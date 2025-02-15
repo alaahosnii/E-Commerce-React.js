@@ -1,15 +1,6 @@
-.productImgContainer {
-    background-color: rgba(245, 245, 245, 1);
-    width: 270px;
-    height: 250px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
 
-.favoriteImg{
+
+.favoriteImg {
     width: 34px;
     height: 34px;
     position: absolute;
@@ -18,7 +9,7 @@
     margin-right: 10px;
 }
 
-.previewIcon{
+.previewIcon {
     width: 34px;
     height: 34px;
     position: absolute;

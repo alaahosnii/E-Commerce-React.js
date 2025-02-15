@@ -1,0 +1,10 @@
+.p{
+    font-size: 14px;
+}
+
+.input{
+    width: 70px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+}

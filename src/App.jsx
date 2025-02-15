@@ -6,7 +6,11 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import ThemeContextProvider from "./contexts/ThemeModeContext";
-
+import Cart from "./components/Cart/Cart";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import LanguageContextProvider from "./contexts/LanguageContext";
+import WishList from "./components/WishList/WishList";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -24,15 +28,26 @@ function App() {
         {
           path: "/contact",
           element: <Contact />
+        },
+        {
+          path: "/cart",
+          element: <Cart />
+        },
+        {
+          path: "/wishlist",
+          element: <WishList />
         }
       ]
     }
   ]);
   return (
-    <ThemeContextProvider >
-      <RouterProvider router={routes} />
-
-    </ThemeContextProvider>
+    <Provider store={store}>
+      <ThemeContextProvider >
+        <LanguageContextProvider>
+          <RouterProvider router={routes} />
+        </LanguageContextProvider>
+      </ThemeContextProvider>
+    </Provider>
   )
 }
 
