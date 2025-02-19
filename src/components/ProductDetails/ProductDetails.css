@@ -1,0 +1,9 @@
+.homeNav{
+    color: lightgrey;
+}
+
+.homeNav:hover{
+    color: black;
+    cursor: pointer;
+}
+

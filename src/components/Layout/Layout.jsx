@@ -11,7 +11,7 @@ function Layout() {
       <Header />
       <div className='container'>
         <NavComponent />
-      </div>
+      </div>  
       <Spacer direaction={"horizontal"} />
       <div className='min-vh-100'>
         <Outlet />

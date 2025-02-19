@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './Home.module.css'
 import NavComponent from '../NavComponent/NavComponent'
 import SideBar from '../SideBar/SideBar'
@@ -6,8 +6,27 @@ import Spacer from '../Spacer/Spacer'
 import coverImg from '../../assets/cover_img.png'
 import CategoryLabel from '../CategoryLabel/CategoryLabel'
 import ProductComponent from '../ProductComponent/ProductComponent'
-import products from '../../Products'
+import axiosInstance from '../../utils/axiosInstance'
+import ProductsContext from '../../contexts/ProductsContex'
+
 function Home() {
+  const { products, setProducts } = useContext(ProductsContext);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const response = await axiosInstance.get("/products");
+      console.log(response.data);
+      setProducts(response.data);
+    } catch (error) {
+      setError(error);
+    }
+
+
+  };
   return (
     <div className='d-flex flex-column container'>
 
@@ -20,9 +39,10 @@ function Home() {
         </div>
       </div>
       <CategoryLabel categoryName={"Our Products"} description={"Explore Our Products"} />
-      <div className='d-flex flex-wrap   justify-content-between'>
+      <div className='d-flex flex-wrap gap-5'>
         {
-          products.map((product) => <ProductComponent key={product.id} product={product} />)
+          products.length !== 0 ? products.map((product) => <ProductComponent key={product.id} product={product} />)
+            : error && <div>{error.message}</div>
         }
       </div>
     </div>

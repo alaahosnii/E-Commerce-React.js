@@ -25,7 +25,7 @@ function Header() {
       <div className='me-5 d-flex'>
         <Dropdown>
 
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+          <Dropdown.Toggle style={{backgroundColor: "transparent" , border: "none"}}  id="dropdown-basic">
             {theme}
           </Dropdown.Toggle>
           <Dropdown.Menu style={{ minWidth: "50px" }}>
@@ -35,7 +35,7 @@ function Header() {
         </Dropdown>
 
         <Dropdown className='ms-3'>
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+          <Dropdown.Toggle style={{backgroundColor: "transparent" , border: "none"}} id="dropdown-basic">
             {language}
           </Dropdown.Toggle>
 

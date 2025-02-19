@@ -8,20 +8,45 @@ const slice = createSlice({
         totalPrice: 0
     },
     reducers: {
+        moveFavoritesToCart: (state, action) => {
+            const [favorites] = action.payload;
+            favorites.forEach((product) => {
+                const { price, quantity, id } = product;
+                const totalProductPrice = price * quantity;
+                const productIndex = state.products.findIndex((cartProduct) => cartProduct.id == id);
+                if (productIndex !== -1) {
+                    const cartProductQuantity = state.products[productIndex].quantity;
+                    const updatedQuantity = cartProductQuantity + 1;
+                    const cartProducts = state.products.map(
+                        (cartProdcut) => cartProdcut.id == id
+                            ? {
+                                ...cartProdcut, price: cartProdcut.price,
+                                quantity: (quantity + cartProductQuantity),
+                                subTotalPrice: cartProdcut.price * updatedQuantity,
+
+                            }
+                            : cartProdcut
+                    );
+                    state.products = cartProducts;
+                } else {
+                    state.products.push(product);
+                }
+                state.totalQuantity += 1;
+                state.totalPrice += totalProductPrice;
+            });
+        },
         addToCart: (state, action) => {
-            const product = action.payload;
-            const productQuantity = product.quantity;
-            const productBasePrice = product.price;
-            const totalProductPrice = productBasePrice * productQuantity;
-            const productIndex = state.products.findIndex((cartProduct) => cartProduct.id == product.id);
+            const { quantity, price, id } = action.payload;
+            const totalProductPrice = price * quantity;
+            const productIndex = state.products.findIndex((cartProduct) => cartProduct.id == id);
             if (productIndex !== -1) {
                 const cartProductQuantity = state.products[productIndex].quantity;
                 const updatedQuantity = cartProductQuantity + 1;
                 const cartProducts = state.products.map(
-                    (cartProdcut) => cartProdcut.id == product.id
+                    (cartProdcut) => cartProdcut.id == id
                         ? {
                             ...cartProdcut, price: cartProdcut.price,
-                            quantity: (product.quantity + cartProductQuantity),
+                            quantity: (quantity + cartProductQuantity),
                             subTotalPrice: cartProdcut.price * updatedQuantity,
 
                         }

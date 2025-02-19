@@ -11,6 +11,9 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import LanguageContextProvider from "./contexts/LanguageContext";
 import WishList from "./components/WishList/WishList";
+import { ProductsContextProvider } from "./contexts/ProductsContex";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -36,15 +39,24 @@ function App() {
         {
           path: "/wishlist",
           element: <WishList />
+        },
+        {
+          path: "product/:id",
+          element: <ProductDetails />
         }
       ]
     }
   ]);
+  const queryClient = new QueryClient();
   return (
     <Provider store={store}>
       <ThemeContextProvider >
         <LanguageContextProvider>
-          <RouterProvider router={routes} />
+          <ProductsContextProvider>
+            <QueryClientProvider client={queryClient}>
+              <RouterProvider router={routes} />
+            </QueryClientProvider>
+          </ProductsContextProvider>
         </LanguageContextProvider>
       </ThemeContextProvider>
     </Provider>

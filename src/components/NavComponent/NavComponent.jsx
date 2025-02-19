@@ -15,7 +15,7 @@ function NavComponent() {
 
   const navigate = useNavigate();
   return (
-    <div className={`p-4 d-flex justify-content-between align-items-center ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>
+    <div className={`d-flex justify-content-between align-items-center ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>
       <h1>Exclusive</h1>
       <ul className={`d-flex fs-6`}>
         <li>
@@ -37,9 +37,9 @@ function NavComponent() {
         </div>
         <div className='btn position-relative' onClick={() => navigate("/wishlist")}>
           <img src={loveIcon} height={"16px"} width={"16px"} />
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <div class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {favoriteState.products.length}
-          </span>
+          </div>
         </div>
         <div className='btn position-relative' onClick={() => navigate("/cart")}>
           <img src={cartIcon} height={"25px"} width={"25px"} />
