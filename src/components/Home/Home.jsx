@@ -3,7 +3,7 @@ import styles from './Home.module.css'
 import NavComponent from '../NavComponent/NavComponent'
 import SideBar from '../SideBar/SideBar'
 import Spacer from '../Spacer/Spacer'
-import coverImg from "@/assets/cover_img.png"; 
+import coverImg from "@/assets/cover_image.png"; 
 import CategoryLabel from '../CategoryLabel/CategoryLabel'
 import ProductComponent from '../ProductComponent/ProductComponent'
 import axiosInstance from '../../utils/axiosInstance'
