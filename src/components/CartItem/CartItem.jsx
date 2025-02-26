@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import cartProduct from '@/assets/cart_product.png'
-import styles from '@/CartItem.module.css'
+import styles from '@/components/CartItem/CartItem.module.css'
 import { changeQuantity, deleteFromCart } from '@/redux/slices/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext'
 import { useLocation, useNavigate } from 'react-router-dom';
-import ProductComponent from '@/ProductComponent/ProductComponent';
+import ProductComponent from '@/components/ProductComponent/ProductComponent.jsx';
 import { QueryClient, useQuery, useQueryClient } from '@tanstack/react-query';
 import axiosInstance from '@/utils/axiosInstance';
 

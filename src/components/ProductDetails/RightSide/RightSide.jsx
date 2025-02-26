@@ -1,6 +1,6 @@
 import React from 'react'
-import Spacer from '@/Spacer/Spacer'
-import SizeCard from '@/SizeCard/SizeCard'
+import Spacer from '@/components/Spacer/Spacer.jsx'
+import SizeCard from '@/components/SizeCard/SizeCard.jsx'
 import star from '@/assets/star.png'
 import greyStar from '@/assets/grey_star.png'
 import minusImage from '@/assets/minus.png'
@@ -8,7 +8,7 @@ import plus from '@/assets/plus.png'
 import loveIcon from '@/assets/love_icon.png'
 import deliveryicon from '@/assets/delivery_icon.png'
 import returnIcon from '@/assets/return_icon.png'
-import "@/RightSide.css"
+import "@/components/ProductDetails/RightSide/RightSide.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { addToFavorite, removeFromFavorite } from '@/redux/slices/FavoriteSlice'
 

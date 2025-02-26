@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '@/LoginForm/LoginForm'
+import LoginForm from '@/components/LoginForm/LoginForm.jsx'
 import loginImage from "@/assets/signup_img.png"
 
 const Login = () => {

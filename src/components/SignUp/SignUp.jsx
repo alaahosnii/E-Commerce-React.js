@@ -1,6 +1,6 @@
 import React from 'react'
 import signupImage from '@/assets/signup_img.png'
-import SignUpForm from '@/SignUpForm/SignUpForm'
+import SignUpForm from '@/components/SignUpForm/SignUpForm.jsx'
 function SignUp() {
   return (
     <div className='mt-3'>

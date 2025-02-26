@@ -1,6 +1,6 @@
 import React from 'react'
 import jblImage from '@/assets/jbl_image.png'
-import TimerCard from '@/TimerCard/TimerCard'
+import TimerCard from '@/components/TimerCard/TimerCard.jsx'
 import { Button } from 'react-bootstrap'
 function ProductBanner() {
   return (

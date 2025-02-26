@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import styles from "@/About.module.css"
+import styles from "@/components/About/About.module.css"
 import aboutImage from "@/assets/about_image.png"
-import ServiceCard from '@/ServiceCard/ServiceCard';
+import ServiceCard from '@/components/ServiceCard/ServiceCard.jsx';
 import serviceImage1 from "@/assets/service1.png";
 import serviceImage2 from "@/assets/service2.png";
 import serviceImage3 from "@/assets/service3.png";
@@ -10,11 +10,11 @@ import serviceImage4 from "@/assets/service4.png";
 import personImage1 from "@/assets/person1.png";
 import personImage2 from "@/assets/person2.png";
 import personImage3 from "@/assets/person3.png";
-import ManagerCard from '@/ManagerCard/ManagerCard';
+import ManagerCard from '@/components/ManagerCard/ManagerCard.jsx';
 import ourService1 from "@/assets/our_service1.png";
 import ourService2 from "@/assets/our_service2.png";
 import ourService3 from "@/assets/our_service3.png";
-import OurService from '@/OurService/OurService';
+import OurService from '@/components/OurService/OurService.jsx';
 function About() {
   const navigate = useNavigate();
   const managers = [

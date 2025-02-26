@@ -1,8 +1,8 @@
 import React from 'react'
 import { Formik } from 'formik';
 import { Button, TextField } from '@mui/material';
-import styles from '@/SignUpForm.module.css';
-import "@/SignUpForm.css"
+import styles from '@/components/SignUpForm/SignUpForm.module.css';
+import "@/components/SignUpForm/SignUpForm.css"
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '@/redux/slices/AuthSlice';

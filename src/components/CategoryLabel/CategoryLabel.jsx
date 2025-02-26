@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import styles from '@/CategoryLabel.module.css'
+import styles from '@/components/CategoryLabel/CategoryLabel.module.css'
 import { Button } from 'react-bootstrap';
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { useNavigate } from 'react-router-dom';

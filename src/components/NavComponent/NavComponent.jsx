@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import '@/NavComponent.css';
-import styles from '@/NavComponent.module.css';
+import React, { useContext } from 'react';
+import '@/components/NavComponent/NavComponent.css';
+import styles from '@/components/NavComponent/NavComponent.module.css';
 import searchIcon from '@/assets/search_icon.png';
 import loveIcon from '@/assets/love_icon.png';
 import cartIcon from '@/assets/cart_icon.png';
@@ -12,7 +12,6 @@ import { Dropdown } from 'react-bootstrap';
 import logOutIcon from '@/assets/logout_icon.png';
 import userNavIcon from '@/assets/user.png';
 import { logoutUser } from '@/redux/slices/AuthSlice';
-import ProductsContext from '@/contexts/ProductsContex';
 function NavComponent() {
   const { theme } = useContext(ThemeContext);
   const cartState = useSelector((state) => state.cart);

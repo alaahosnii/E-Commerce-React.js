@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Spacer from '@/Spacer/Spacer'
+import Spacer from '@/components/Spacer/Spacer.jsx'
 import { useSelector } from 'react-redux';
 
 

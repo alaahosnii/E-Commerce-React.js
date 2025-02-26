@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import CategoryLabel from '@/CategoryLabel/CategoryLabel'
-import ProductComponent from '@/ProductComponent/ProductComponent'
+import CategoryLabel from '@/components/CategoryLabel/CategoryLabel.jsx'
+import ProductComponent from '@/components/ProductComponent/ProductComponent.jsx'
 import { useNavigate } from 'react-router-dom';
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { Button } from 'react-bootstrap';

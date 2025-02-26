@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '@/ManagerCard.module.css'
-import twitterBlack from '@/assets/twitter_black.png'
-import instagramBlack from '@/assets/insta_black.png'
-import linkedBlack from '@/assets/linked_black.png'
+import styles from './ManagerCard.module.css'
+import twitterBlack from '../../assets/twitter_black.png'
+import instagramBlack from '../../assets/insta_black.png'
+import linkedBlack from '../../assets/linked_black.png'
 function ManagerCard({ manager }) {
   return (
     <div className={styles.ManagerCard}>

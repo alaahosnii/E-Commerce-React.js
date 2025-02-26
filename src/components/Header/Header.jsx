@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import styles from '@/Header.module.css';
-import { Button } from 'react-bootstrap';
+import styles from '@/components/Header/Header.module.css';
 import { ThemeContext } from '@/contexts/ThemeModeContext';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { languageContext } from '@/contexts/LanguageContext';
 function Header() {
   const { theme, setTheme } = useContext(ThemeContext);

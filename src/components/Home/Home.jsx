@@ -1,19 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import styles from '@/Home.module.css'
-import NavComponent from '@/NavComponent/NavComponent'
-import SideBar from '@/SideBar/SideBar'
-import Spacer from '@/Spacer/Spacer'
+import SideBar from '@/components/SideBar/SideBar.jsx'
 import coverImg from "@/assets/cover_image.png"; 
-import CategoryLabel from '@/CategoryLabel/CategoryLabel'
-import ProductComponent from '@/ProductComponent/ProductComponent'
 import axiosInstance from '@/utils/axiosInstance'
 import ProductsContext from '@/contexts/ProductsContex'
-import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext'
-import CategorySection from '@/CategorySection/CategorySection'
-import ProductBanner from '@/ProductBanner/ProductBanner'
-import NewArrivalSection from '@/NewArrivalSection/NewArrivalSection'
+import CategorySection from '@/components/CategorySection/CategorySection.jsx'
+import ProductBanner from '@/components/ProductBanner/ProductBanner.jsx'
+import NewArrivalSection from '@/components/NewArrivalSection/NewArrivalSection.jsx'
 
 function Home() {
   const { products, setProducts, flashSalesProducts, setFlashSalesProducts, bestSellingProducts, setBestSellingProducts } = useContext(ProductsContext);
