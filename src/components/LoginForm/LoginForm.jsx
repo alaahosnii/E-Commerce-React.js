@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik';
 import { Button, TextField } from '@mui/material';
-import styles from './LoginForm.module.css';
+import styles from '@/LoginForm.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../redux/slices/AuthSlice';
+import { loginUser } from '@/redux/slices/AuthSlice';
 import { toast } from 'react-toastify';
 
 function LoginForm() {

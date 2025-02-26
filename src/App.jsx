@@ -1,24 +1,24 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from "./components/Layout/Layout";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Contact from "./components/Contact/Contact";
-import ThemeContextProvider from "./contexts/ThemeModeContext";
-import Cart from "./components/Cart/Cart";
+import Layout from "@/components/Layout/Layout";
+import Home from "@/components/Home/Home";
+import About from "@/components/About/About";
+import Contact from "@/components/Contact/Contact";
+import ThemeContextProvider from "@/contexts/ThemeModeContext";
+import Cart from "@/components/Cart/Cart";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import LanguageContextProvider from "./contexts/LanguageContext";
-import WishList from "./components/WishList/WishList";
-import { ProductsContextProvider } from "./contexts/ProductsContex";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
+import store from "@/redux/store";
+import LanguageContextProvider from "@/contexts/LanguageContext";
+import WishList from "@/components/WishList/WishList";
+import { ProductsContextProvider } from "@/contexts/ProductsContex";
+import ProductDetails from "@/components/ProductDetails/ProductDetails";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import SignUp from "./components/SignUp/SignUp";
-import Login from "./components/Login/Login";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import SignUp from "@/components/SignUp/SignUp";
+import Login from "@/components/Login/Login";
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
-import Products from "./components/Products/Products";
-import ProductsInRoutesContextProvider from "./contexts/ProductsInRoutesContext";
+import Products from "@/components/Products/Products";
+import ProductsInRoutesContextProvider from "@/contexts/ProductsInRoutesContext";
 
 function App() {
   let routes = createBrowserRouter([

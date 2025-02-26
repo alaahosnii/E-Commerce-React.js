@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import styles from './Cart.module.css'
-import CartItem from '../CartItem/CartItem'
-import CartSummary from '../CartSummary/CartSummary'
+import styles from '@/Cart.module.css'
+import CartItem from '@/CartItem/CartItem'
+import CartSummary from '@/CartSummary/CartSummary'
 import { useSelector } from 'react-redux'
-import { addToCart } from '../../redux/slices/CartSlice'
+import { addToCart } from '@/redux/slices/CartSlice'
 
 function Cart() {
   // const { userCart } = useContext(ProductsInCartContext);

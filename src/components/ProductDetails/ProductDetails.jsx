@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import "./ProductDetails.css"
-import styles from "./ProductDetails.module.css"
+import "@/ProductDetails.css"
+import styles from "@/ProductDetails.module.css"
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import axiosInstance from '../../utils/axiosInstance';
+import axiosInstance from '@/utils/axiosInstance';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../redux/slices/CartSlice';
-import RightSide from './RightSide/RightSide';
-import { addToFavorite } from '../../redux/slices/FavoriteSlice';
-import { removeFromFavorite } from '../../redux/slices/FavoriteSlice';
-import RelatedItem from '../RelatedItem/RelatedItem';
+import { addToCart } from '@/redux/slices/CartSlice';
+import RightSide from '@/RightSide/RightSide';
+import { addToFavorite } from '@/redux/slices/FavoriteSlice';
+import { removeFromFavorite } from '@/redux/slices/FavoriteSlice';
+import RelatedItem from '@/RelatedItem/RelatedItem';
 function ProductDetails() {
   const sizesList = [
 

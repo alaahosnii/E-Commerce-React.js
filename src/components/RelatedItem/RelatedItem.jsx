@@ -1,8 +1,8 @@
 import React from 'react'
-import CategoryLabel from '../CategoryLabel/CategoryLabel'
+import CategoryLabel from '@/CategoryLabel/CategoryLabel'
 import { useQuery } from '@tanstack/react-query'
-import axiosInstance from '../../utils/axiosInstance'
-import ProductComponent from '../ProductComponent/ProductComponent';
+import axiosInstance from '@/utils/axiosInstance'
+import ProductComponent from '@/ProductComponent/ProductComponent';
 
 function RelatedItem({ id }) {
   console.log(id);

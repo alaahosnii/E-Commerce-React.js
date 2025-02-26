@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import CategoryLabel from '../CategoryLabel/CategoryLabel'
-import ProductComponent from '../ProductComponent/ProductComponent'
+import CategoryLabel from '@/CategoryLabel/CategoryLabel'
+import ProductComponent from '@/ProductComponent/ProductComponent'
 import { useNavigate } from 'react-router-dom';
-import { ProductsInRoutesContext } from '../../contexts/ProductsInRoutesContext';
+import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { Button } from 'react-bootstrap';
 
 function CategorySection({ products, error, categoryName, description, style, isExplore = false, isBestSelling = false }) {

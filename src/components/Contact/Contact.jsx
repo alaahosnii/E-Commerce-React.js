@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import phoneIcon from "@/assets/phone_icon.png";
 import emailIcon from "@/assets/mail_icon.png";
-import Spacer from '../Spacer/Spacer';
+import Spacer from '@/Spacer/Spacer';
 import { Formik } from 'formik';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';

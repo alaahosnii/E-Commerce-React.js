@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Footer.module.css'
+import styles from '@/Footer.module.css'
 import qr from '@/assets/qr.png'
 import playStore from '@/assets/google_play.png'
 import appStore from '@/assets/app_store.png'

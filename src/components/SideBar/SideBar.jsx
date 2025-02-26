@@ -1,6 +1,6 @@
 import React from 'react'
-import CategoryItem from '../CategoryItem/CategoryItem'
-import Spacer from '../Spacer/Spacer'
+import CategoryItem from '@/CategoryItem/CategoryItem'
+import Spacer from '@/Spacer/Spacer'
 
 function SideBar() {
   return (

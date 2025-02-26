@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import styles from './CategoryLabel.module.css'
+import styles from '@/CategoryLabel.module.css'
 import { Button } from 'react-bootstrap';
-import { ProductsInRoutesContext } from '../../contexts/ProductsInRoutesContext';
+import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { useNavigate } from 'react-router-dom';
 import semicolon from '@/assets/semicolon.png'
 function CategoryLabel({ products = [] , isNewArrival = false , isFromProductDetails = false, categoryName, isExplore = false, description, isBestSelling = false }) {

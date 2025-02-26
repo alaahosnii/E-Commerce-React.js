@@ -1,13 +1,13 @@
 import React, { use, useEffect, useState } from 'react'
-import styles from './ProductComponent.module.css'
+import styles from '@/ProductComponent.module.css'
 import favoriteIcon from '@/assets/fav_icon.png'
 import previewIcon from '@/assets/preview_icon.png'
 import star from '@/assets/star.png'
 import greyStar from '@/assets/grey_star.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { addCartToDataBase, addToCart } from '../../redux/slices/CartSlice'
-import "./ProductComponent.css"
-import { addToFavorite, removeFromFavorite } from '../../redux/slices/FavoriteSlice'
+import { addCartToDataBase, addToCart } from '@/redux/slices/CartSlice'
+import "@/ProductComponent.css"
+import { addToFavorite, removeFromFavorite } from '@/redux/slices/FavoriteSlice'
 import heartFilled from '@/assets/heart_filled.png'
 import deleteIcon from '@/assets/delete_icon.png'
 import whiteCart from '@/assets/white_cart.png'

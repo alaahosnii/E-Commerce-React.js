@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './WishList.module.css'
-import ProductComponent from '../ProductComponent/ProductComponent';
-import { addToCart } from '../../redux/slices/CartSlice';
+import styles from '@/WishList.module.css'
+import ProductComponent from '@/ProductComponent/ProductComponent';
+import { addToCart } from '@/redux/slices/CartSlice';
 function WishList() {
   const favoriteState = useSelector((state) => state.favorite);
   console.log(favoriteState)

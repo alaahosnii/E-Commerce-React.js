@@ -1,6 +1,6 @@
 import React from 'react'
-import Spacer from '../../Spacer/Spacer'
-import SizeCard from '../../SizeCard/SizeCard'
+import Spacer from '@/Spacer/Spacer'
+import SizeCard from '@/SizeCard/SizeCard'
 import star from '@/assets/star.png'
 import greyStar from '@/assets/grey_star.png'
 import minusImage from '@/assets/minus.png'
@@ -8,9 +8,9 @@ import plus from '@/assets/plus.png'
 import loveIcon from '@/assets/love_icon.png'
 import deliveryicon from '@/assets/delivery_icon.png'
 import returnIcon from '@/assets/return_icon.png'
-import "./RightSide.css"
+import "@/RightSide.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { addToFavorite, removeFromFavorite } from '../../../redux/slices/FavoriteSlice'
+import { addToFavorite, removeFromFavorite } from '@/redux/slices/FavoriteSlice'
 
 function RightSide({ product, sizes, onSizeSelected, quantity, incrementQuantity, decrementQuantity, addProductToCart }) {
     const favoriteProduct = useSelector((state) => state.favorite.products).find((favProduct) => favProduct.id == product.id);
