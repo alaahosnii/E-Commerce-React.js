@@ -6,7 +6,7 @@ import appStore from '@/assets/app_store.png'
 import facebook from '@/assets/facebook.png'
 import twitter from '@/assets/twitter.png'
 import insta from '@/assets/insta.png'
-import linkedIn from '@/assets/linkedin.png'
+import linkedIn from '@/assets/linkedIn.png'
 function Footer() {
   return (
     <div className={`${styles.footer} bg-black text-white`}>
