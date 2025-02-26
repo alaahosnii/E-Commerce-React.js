@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import cartProduct from '@/assets/cart_product.png'
 import styles from '@/components/CartItem/CartItem.module.css'
 import { changeQuantity, deleteFromCart } from '@/redux/slices/CartSlice';

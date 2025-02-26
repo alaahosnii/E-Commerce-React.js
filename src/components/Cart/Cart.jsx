@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import styles from '@/components/Cart/Cart.module.css'
 import CartItem from '@/components/CartItem/CartItem.jsx'
 import CartSummary from '@/components/CartSummary/CartSummary.jsx'
 import { useSelector } from 'react-redux'
-import { addToCart } from '@/redux/slices/CartSlice'
 
 function Cart() {
   // const { userCart } = useContext(ProductsInCartContext);

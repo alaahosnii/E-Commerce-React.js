@@ -1,5 +1,5 @@
 import React from 'react'
-import "@/components/SizeCard/SizeCard.css"
+import "@/components/SizeCard/Sizecard.css"
 function SizeCard({ size, onSelect }) {
 
   return (
