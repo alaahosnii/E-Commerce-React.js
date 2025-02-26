@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Spacer from '../Spacer/Spacer'
 import { useSelector } from 'react-redux';
 
+
 function CartSummary() {
   const cartState = useSelector((state) => state.cart);
-  const cartProducts = cartState.products;
-  const total = cartState.totalPrice;
+  console.log("cartState" , cartState);
+  
+  // const cartState = useSelector((state) => state.cart);
+  // const cartProducts = cartState.products;
+  // console.log(userCart);
+  
+  const total = cartState.localCart.totalPrice;
   return (
     <div className='ms-auto border border-1 p-3 border-black rounded col-4'>
       <h6 className='mb-0'>Cart Total</h6>

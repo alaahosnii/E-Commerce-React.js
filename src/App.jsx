@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import styles from "./App.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -14,6 +13,13 @@ import WishList from "./components/WishList/WishList";
 import { ProductsContextProvider } from "./contexts/ProductsContex";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SignUp from "./components/SignUp/SignUp";
+import Login from "./components/Login/Login";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { ToastContainer } from "react-toastify";
+import Products from "./components/Products/Products";
+import ProductsInRoutesContextProvider from "./contexts/ProductsInRoutesContext";
+
 function App() {
   let routes = createBrowserRouter([
     {
@@ -43,6 +49,20 @@ function App() {
         {
           path: "product/:id",
           element: <ProductDetails />
+        },
+        {
+          path: "Signup",
+          element: <ProtectedRoute>
+            <SignUp />
+          </ProtectedRoute>
+        },
+        {
+          path: "Login",
+          element: <Login />
+        },
+        {
+          path: "Products",
+          element: <Products />
         }
       ]
     }
@@ -53,9 +73,12 @@ function App() {
       <ThemeContextProvider >
         <LanguageContextProvider>
           <ProductsContextProvider>
-            <QueryClientProvider client={queryClient}>
-              <RouterProvider router={routes} />
-            </QueryClientProvider>
+            <ProductsInRoutesContextProvider>
+              <QueryClientProvider client={queryClient}>
+                <RouterProvider router={routes} />
+                <ToastContainer autoClose={false} draggable={false} />
+              </QueryClientProvider>
+            </ProductsInRoutesContextProvider>
           </ProductsContextProvider>
         </LanguageContextProvider>
       </ThemeContextProvider>

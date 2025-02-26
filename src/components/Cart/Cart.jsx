@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './Cart.module.css'
 import CartItem from '../CartItem/CartItem'
 import CartSummary from '../CartSummary/CartSummary'
 import { useSelector } from 'react-redux'
 import { addToCart } from '../../redux/slices/CartSlice'
+
 function Cart() {
+  // const { userCart } = useContext(ProductsInCartContext);
+
   const cartState = useSelector((state) => state.cart);
-  const cartProducts = cartState.products;
-  console.log(cartState);
+  // console.log("local " , cartState.localCart);
+  
+  // const cartProducts = cartState.products;
+  // console.log(cartState);
 
   return (
     <div className={`${styles.mainWrapper}`}>
@@ -19,7 +24,7 @@ function Cart() {
           <div className='col-3 text-center'>Subtotal</div>
         </div>
         {
-          cartProducts.length != 0 ? cartProducts.map((product) => <CartItem key={product.id} product={product} />)
+          cartState.localCart.products.length != 0 ? cartState.localCart.products.map((product) => <CartItem key={product.id} product={product} />)
             : <div>No Products</div>
         }
 
