@@ -1,5 +1,5 @@
 import React from 'react'
-import arrow from '../../assets/arrow.png'
+import arrow from '@/assets/arrow.png'
 function CategoryItem({ categoryName }) {
   return (
     <div className='d-flex align-items-center justify-content-between'>

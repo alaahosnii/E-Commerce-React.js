@@ -1,5 +1,5 @@
 import React from 'react'
-import signupImage from '../../assets/signup_img.png'
+import signupImage from '@/assets/signup_img.png'
 import SignUpForm from '../SignUpForm/SignUpForm'
 function SignUp() {
   return (

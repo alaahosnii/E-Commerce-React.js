@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './NavComponent.css';
 import styles from './NavComponent.module.css';
-import searchIcon from '../../assets/search_icon.png';
-import loveIcon from '../../assets/love_icon.png';
-import cartIcon from '../../assets/cart_icon.png';
+import searchIcon from '@/assets/search_icon.png';
+import loveIcon from '@/assets/love_icon.png';
+import cartIcon from '@/assets/cart_icon.png';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/ThemeModeContext';
 import { useDispatch, useSelector } from 'react-redux';
-import userIcon from '../../assets/user_icon.png';
+import userIcon from '@/assets/user_icon.png';
 import { Dropdown } from 'react-bootstrap';
-import logOutIcon from '../../assets/logout_icon.png';
-import userNavIcon from '../../assets/user.png';
+import logOutIcon from '@/assets/logout_icon.png';
+import userNavIcon from '@/assets/user.png';
 import { logoutUser } from '../../redux/slices/AuthSlice';
 import ProductsContext from '../../contexts/ProductsContex';
 function NavComponent() {

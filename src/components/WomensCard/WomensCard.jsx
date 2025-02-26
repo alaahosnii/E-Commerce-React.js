@@ -1,5 +1,5 @@
 import React from 'react'
-import womenImage from "../../assets/women_image.png";
+import womenImage from "@/assets/women_image.png";
 import { NavLink, useNavigate } from 'react-router-dom';
 function WomensCard() {
   const navigate = useNavigate();
