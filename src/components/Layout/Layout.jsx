@@ -14,13 +14,25 @@ function Layout() {
   const authState = useSelector((state) => state.auth);
   console.log(cartState.localCart);
   const token = localStorage.getItem("token");
+
   useEffect(() => {
     if (token) {
       dispatch(getLoggedInUser());
+
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log("sss");
+
+    if (authState.token) {
+      console.log("token", authState.token);
+
+      // dispatch(getLoggedInUser());
       dispatch(getCartFromDB());
 
     }
-  }, []);
+  }, [authState.token]);
 
   useEffect(() => {
     if (authState.getLoggedInUserError) {

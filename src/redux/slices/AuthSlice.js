@@ -48,8 +48,8 @@ const authSlice = createSlice({
         registerError: null,
         registerStatus: false,
         getLoggedInUserError: null,
-        getLoggedInUserLoading: false
-
+        getLoggedInUserLoading: false,
+        token: null
     },
 
     reducers: {
@@ -67,6 +67,7 @@ const authSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 localStorage.setItem("token", action.payload.token);
+                state.token = action.payload.token;
                 state.isLoginLoading = false;
                 state.loginError = null;
                 state.user = action.payload.user;
@@ -93,6 +94,7 @@ const authSlice = createSlice({
                 state.getLoggedInUserError = null;
             })
             .addCase(getLoggedInUser.fulfilled, (state, action) => {
+                state.token = localStorage.getItem("token");
                 state.user = action.payload;
                 state.getLoggedInUserLoading = false;
                 state.getLoggedInUserError = null;
