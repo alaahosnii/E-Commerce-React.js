@@ -143,6 +143,7 @@ const slice = createSlice({
                 totalQuantity: state.localCart.totalQuantity - deletedProduct.quantity,
                 totalPrice: state.localCart.totalPrice - deletedProduct.subTotalPrice
             }
+            state.actionToChangeCart = action.type;
             // state.totalPrice -= deletedProduct.subTotalPrice;
             // state.totalQuantity -= deletedProduct.quantity;
             // state.products = filteredProducts;

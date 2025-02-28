@@ -27,6 +27,9 @@ function ProductComponent({ product, isWishList = false, isFlashSale = false }) 
         quantity: 1,
         subTotalPrice: product.price,
       }));
+      toast.success("Product added to cart", {
+        autoClose: 3000
+      });
     } else {
       const id = toast.error(
         <div className='d-flex align-items-center justify-content-between w-100'>Login to add to cart
@@ -92,7 +95,7 @@ function ProductComponent({ product, isWishList = false, isFlashSale = false }) 
           </div>
         }
       </div>
-      <h6 style={{width: "270px"}} className='mt-2 mb-0'>{product.name}</h6>
+      <h6 style={{ width: "270px" }} className='mt-2 mb-0'>{product.name}</h6>
       <div className='d-flex gap-2 align-items-center mt-2'>
         {
           isFlashSale &&
