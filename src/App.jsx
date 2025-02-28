@@ -19,6 +19,9 @@ import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import Products from "@/components/Products/Products";
 import ProductsInRoutesContextProvider from "@/contexts/ProductsInRoutesContext";
+import Account from "@/components/Account/Account.jsx";
+import CheckOut from "@/components/CheckOut/CheckOut.jsx";
+import PaymentSuccess from "@/components/PaymentSuccess/PaymentSuccess";
 
 function App() {
   let routes = createBrowserRouter([
@@ -63,6 +66,18 @@ function App() {
         {
           path: "Products",
           element: <Products />
+        },
+        {
+          path: "Account",
+          element: <Account />
+        },
+        {
+          path: "Checkout",
+          element: <CheckOut />
+        },
+        {
+          path: "paymentsuccess",
+          element: <PaymentSuccess />
         }
       ]
     }

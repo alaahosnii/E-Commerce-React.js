@@ -4,7 +4,7 @@ import "@/components/ProductDetails/ProductDetails.css"
 import styles from "@/components/ProductDetails/ProductDetails.module.css"
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import axiosInstance from '@/utils/axiosInstance';
+import axiosInstance from '@/utils/axiosInstance.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '@/redux/slices/CartSlice';
 import RightSide from '@/components/ProductDetails/RightSide/RightSide.jsx';

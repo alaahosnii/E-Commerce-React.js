@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import Spacer from '@/components/Spacer/Spacer.jsx'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 function CartSummary() {
   const cartState = useSelector((state) => state.cart);
   console.log("cartState" , cartState);
-  
+  const navigate = useNavigate();
   // const cartState = useSelector((state) => state.cart);
   // const cartProducts = cartState.products;
   // console.log(userCart);
@@ -32,8 +33,7 @@ function CartSummary() {
         </div>
       </div>
       <div className='d-flex justify-content-center mt-3'>
-        <button className='btn btn-danger' type="button">Proceed to Checkout</button>
-
+        <button onClick={() => navigate("/checkout")} className='btn btn-danger' type="button">Proceed to Checkout</button>
       </div>
     </div>
   )

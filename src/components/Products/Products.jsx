@@ -3,7 +3,7 @@ import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext'
 import { useLocation, useNavigate } from 'react-router-dom';
 import ProductComponent from '@/components/ProductComponent/ProductComponent.jsx';
 import { QueryClient, useQuery, useQueryClient } from '@tanstack/react-query';
-import axiosInstance from '@/utils/axiosInstance';
+import axiosInstance from '@/utils/axiosInstance.js';
 
 function Products() {
   const { productsInRoutes } = useContext(ProductsInRoutesContext);

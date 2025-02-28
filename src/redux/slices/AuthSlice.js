@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axiosInstance from "@/utils/axiosInstance";
+import axiosInstance from "@/utils/axiosInstance.js";
 
 export const loginUser = createAsyncThunk(
     "auth/loginUser",
-    async (user, { rejectWithValue }) => {
+    async (user, {rejectWithValue}) => {
         try {
             const response = await axiosInstance.post("/auth/login", user);
             return response.data;
@@ -38,6 +38,20 @@ export const getLoggedInUser = createAsyncThunk(
         }
     }
 )
+
+
+export const updateUser = createAsyncThunk(
+    "auth/updateUser",
+    async (updatedUser, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.patch("/auth/updateUser", updatedUser);
+            return response.data;
+        } catch (error) {
+            console.log("update error", error);
+            return rejectWithValue(error);
+        }
+    }
+)
 const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -49,7 +63,10 @@ const authSlice = createSlice({
         registerStatus: false,
         getLoggedInUserError: null,
         getLoggedInUserLoading: false,
-        token: null
+        token: null,
+        updateUserError: null,
+        updateUserLoading: false,
+        updateUserSuccess: false
     },
 
     reducers: {
@@ -102,6 +119,21 @@ const authSlice = createSlice({
             .addCase(getLoggedInUser.rejected, (state, action) => {
                 state.getLoggedInUserError = action.payload;
                 state.getLoggedInUserLoading = false;
+            })
+            .addCase(updateUser.pending, (state) => {
+                state.updateUserLoading = true;
+                state.updateUserError = null;
+            })
+            .addCase(updateUser.rejected, (state, action) => {
+                state.updateUserLoading = false;
+                state.updateUserError = action.payload;
+            })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                localStorage.setItem("token", action.payload.token);
+                state.updateUserLoading = false;
+                state.updateUserSuccess = true;
+                state.user = action.payload.user;
+                state.token = action.payload.token;
             })
 
     }

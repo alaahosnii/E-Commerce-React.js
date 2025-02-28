@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React from 'react'
 import styles from '@/components/ProductComponent/ProductComponent.module.css'
 import favoriteIcon from '@/assets/fav_icon.png'
 import previewIcon from '@/assets/preview_icon.png'

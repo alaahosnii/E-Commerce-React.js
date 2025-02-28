@@ -17,6 +17,8 @@ function Layout() {
 
   useEffect(() => {
     if (token) {
+      console.log("logged");
+      
       dispatch(getLoggedInUser());
 
     }

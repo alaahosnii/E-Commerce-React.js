@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import SideBar from '@/components/SideBar/SideBar.jsx'
 import coverImg from "@/assets/cover_image.png"; 
-import axiosInstance from '@/utils/axiosInstance'
+import axiosInstance from '@/utils/axiosInstance.js'
 import ProductsContext from '@/contexts/ProductsContex'
 import { useNavigate } from 'react-router-dom'
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext'
 import CategorySection from '@/components/CategorySection/CategorySection.jsx'
 import ProductBanner from '@/components/ProductBanner/ProductBanner.jsx'
 import NewArrivalSection from '@/components/NewArrivalSection/NewArrivalSection.jsx'
+import CarouselCard from '@/components/CarouselCard/CarouselCard.jsx';
 
 function Home() {
   const { products, setProducts, flashSalesProducts, setFlashSalesProducts, bestSellingProducts, setBestSellingProducts } = useContext(ProductsContext);
@@ -47,8 +48,8 @@ function Home() {
         <div className='col-3'>
           <SideBar />
         </div>
-        <div className='col-9'>
-          <img src={coverImg} width={"100%"} className='pt-3 ps-3 pe-3' />
+        <div className='col-9 pt-3 ps-3 pe-3'>
+          <CarouselCard />
         </div>
       </div>
 
