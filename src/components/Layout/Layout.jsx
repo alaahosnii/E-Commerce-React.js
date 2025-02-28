@@ -16,25 +16,27 @@ function Layout() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    console.log("logged");
+
     if (token) {
-      console.log("logged");
-      
       dispatch(getLoggedInUser());
-
-    }
-  }, [])
-
-  useEffect(() => {
-    console.log("sss");
-
-    if (authState.token) {
-      console.log("token", authState.token);
-
-      // dispatch(getLoggedInUser());
       dispatch(getCartFromDB());
-
     }
+
+
   }, [authState.token]);
+
+  // useEffect(() => {
+  //   console.log("sss");
+
+  //   if (authState.token) {
+  //     console.log("token", authState.token);
+
+  //     // dispatch(getLoggedInUser());
+  //     dispatch(getCartFromDB());
+
+  //   }
+  // }, [authState.token]);
 
   useEffect(() => {
     if (authState.getLoggedInUserError) {
@@ -45,6 +47,8 @@ function Layout() {
     console.log(cartState.isAddToLocalCart);
 
     if ((cartState.isAddToLocalCart || cartState.actionToChangeCart) && cartState.localCart.products.length >= 0) {
+      console.log("nnnnhhhhhh");
+
       dispatch(addCartToDataBase({
         products: cartState.localCart.products,
         totalQuantity: cartState.localCart.totalQuantity,
@@ -66,13 +70,13 @@ function Layout() {
   }, [cartState.addCartToDBSuccess]);
 
   return (
-    <div className='main-layout'>
+    <div>
       <Header />
       <div className='container'>
         <NavComponent />
       </div>
       <Spacer direaction={"horizontal"} />
-      <div className='min-vh-100'>
+      <div className='min-vh-100' >
         <Outlet />
       </div>
       <Footer />

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import SideBar from '@/components/SideBar/SideBar.jsx'
-import coverImg from "@/assets/cover_image.png"; 
+import coverImg from "@/assets/cover_image.png";
 import axiosInstance from '@/utils/axiosInstance.js'
 import ProductsContext from '@/contexts/ProductsContex'
 import { useNavigate } from 'react-router-dom'

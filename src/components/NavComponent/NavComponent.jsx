@@ -12,6 +12,7 @@ import { Dropdown } from 'react-bootstrap';
 import logOutIcon from '@/assets/logout_icon.png';
 import userNavIcon from '@/assets/user.png';
 import { logoutUser } from '@/redux/slices/AuthSlice';
+import { removeLocalCart } from '@/redux/slices/CartSlice';
 function NavComponent() {
   const { theme } = useContext(ThemeContext);
   const cartState = useSelector((state) => state.cart);
@@ -26,6 +27,7 @@ function NavComponent() {
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(logoutUser());
+    dispatch(removeLocalCart());
   }
 
   // useEffect(() => {
@@ -53,7 +55,7 @@ function NavComponent() {
   // }, [cartState.cartFromDB]);
 
   return (
-    <div className={`d-flex justify-content-between align-items-center ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>
+    <div className={`d-flex justify-content-between align-items-center ${authState.getLoggedInUserLoading && styles.blurLoading} ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>
       <h1>Exclusive</h1>
       <ul className={`d-flex fs-6`}>
         <li>
@@ -70,9 +72,14 @@ function NavComponent() {
           <li>
             <NavLink to="/Account" className={({ isActive }) => isActive ? styles.navActive : styles.navDefault}>Account</NavLink>
           </li> :
-          <li>
-            <NavLink to="/SignUp" className={({ isActive }) => isActive ? styles.navActive : styles.navDefault}>Sign Up</NavLink>
-          </li>
+          authState.getLoggedInUserLoading ?
+            <li>
+              <p className='mb-0'>Loading</p>
+            </li>
+            :
+            <li>
+              <NavLink to="/SignUp" className={({ isActive }) => isActive ? styles.navActive : styles.navDefault}>Sign Up</NavLink>
+            </li>
         }
 
       </ul>
@@ -90,7 +97,7 @@ function NavComponent() {
         <div className='btn position-relative' onClick={() => navigate("/cart")}>
           <img src={cartIcon} height={"25px"} width={"25px"} />
           <div className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {authState.user ? cartState.localCart.products.length : 0}
+            {cartState.localCart.products.length}
           </div>
         </div>
         {authState.user &&

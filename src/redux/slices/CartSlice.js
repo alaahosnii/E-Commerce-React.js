@@ -46,11 +46,13 @@ const slice = createSlice({
     },
 
     reducers: {
-        // setCartFromDB: (state, action) => {
-        //     state.localCart.products = action.payload.products;
-        //     state.localCart.totalQuantity = action.payload.totalQuantity;
-        //     state.localCart.totalPrice = action.payload.totalPrice;
-        // },
+        removeLocalCart: (state , action) => {
+            state.localCart = {
+                products: [],
+                totalQuantity: 0,
+                totalPrice: 0
+            }  
+        },
 
         chagngeIsAddToLocalCart: (state, action) => {
             state.isAddToLocalCart = action.payload
@@ -185,5 +187,5 @@ const slice = createSlice({
     },
 });
 
-export const { addToCart, resetActionToChangeCart , changeQuantity, chagngeIsAddToLocalCart, deleteFromCart, setCartFromDB } = slice.actions;
+export const { addToCart , removeLocalCart, resetActionToChangeCart , changeQuantity, chagngeIsAddToLocalCart, deleteFromCart, setCartFromDB } = slice.actions;
 export default slice.reducer;
