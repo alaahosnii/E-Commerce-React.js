@@ -54,7 +54,7 @@ function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetai
         clearInterval(id);
       }
 
-    }, 3000);
+    }, 1000);
 
     setInervalId(id);
   }
