@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { useNavigate } from 'react-router-dom';
 import semicolon from '@/assets/semicolon.png'
-function CategoryLabel({ products = [] , isNewArrival = false , isFromProductDetails = false, categoryName, isExplore = false, description, isBestSelling = false }) {
+function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetails = false, categoryName, isExplore = false, description, isBestSelling = false }) {
   const { setProductsInRoutes } = useContext(ProductsInRoutesContext);
   const navigate = useNavigate();
   const dateNow = new Date();
@@ -16,34 +16,41 @@ function CategoryLabel({ products = [] , isNewArrival = false , isFromProductDet
     minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
     seconds: Math.floor((difference % (1000 * 60)) / 1000)
   });
-  const [inervalId , setInervalId] = useState(null);
+  const [inervalId, setInervalId] = useState(null);
   useEffect(() => {
     calculatedSalesDate();
   }, [])
-  
+
 
   useEffect(() => {
     return () => {
       console.log("clearing interval");
       clearInterval(inervalId);
     }
-  } , [])
-  // useEffect(() => {
-  //   console.log(remainingDate);
-  // }, [remainingDate])
+  }, [])
+
   const calculatedSalesDate = () => {
     const salesExpiryDate = new Date("2025-03-01T08:15:00");
-    // console.log("salesExpiryDate", salesExpiryDate);
 
     const id = setInterval(() => {
       const dateNow = new Date();
       const difference = salesExpiryDate - dateNow;
-      setRemainingDate({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000)
-      })
+      if (difference > 0) {
+        setRemainingDate({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        })
+      } else {
+        setRemainingDate({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        })
+        clearInterval(id);
+      }
 
     }, 3000);
 
