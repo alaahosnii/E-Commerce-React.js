@@ -11,10 +11,10 @@ function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetai
   const salesExpiryDate = new Date("2025-03-01T08:15:00");
   const difference = salesExpiryDate - dateNow;
   const [remainingDate, setRemainingDate] = useState({
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((difference % (1000 * 60)) / 1000)
+    days: difference > 0 ? Math.floor(difference / (1000 * 60 * 60 * 24)) : 0,
+    hours: difference > 0 ? Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) : 0,
+    minutes: difference > 0 ? Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)) : 0,
+    seconds: difference > 0 ? Math.floor((difference % (1000 * 60)) / 1000) : 0
   });
   const [inervalId, setInervalId] = useState(null);
   useEffect(() => {
