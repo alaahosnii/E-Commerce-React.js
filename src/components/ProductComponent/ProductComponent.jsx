@@ -17,7 +17,7 @@ import { Button } from 'react-bootstrap'
 function ProductComponent({ product, isWishList = false, isFlashSale = false }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const favorites = useSelector((state) => state.favorite.products);  
+  const favorites = useSelector((state) => state.favorite.products);
   const favoriteProduct = favorites.find((favProduct) => favProduct.id == product.id);
   const authState = useSelector((state) => state.auth);
   const addProductToCart = (e) => {
@@ -55,12 +55,33 @@ function ProductComponent({ product, isWishList = false, isFlashSale = false }) 
 
   const toggleFavorite = (e) => {
     e.stopPropagation();
-
-    if (favoriteProduct) {
-      removeProductFromFavorite(product);
+    if (authState.user) {
+      if (favoriteProduct) {
+        removeProductFromFavorite(product);
+      } else {
+        addProductToFavorite(product);
+      }
     } else {
-      addProductToFavorite(product);
+      const id = toast.error(
+        <div className='d-flex align-items-center justify-content-between w-100'>Login to add to wishlist
+          <Button
+            onClick={() => {
+              toast.dismiss(id);
+              return navigate("/login")
+            }}
+            variant="contained"
+            className={`bg-danger text-white d-flex align-items-center justify-content-center`}
+            style={{ height: "30px" }}
+          >Login
+          </Button>
+        </div>,
+
+        {
+          autoClose: 5000,
+          closeButton: false
+        })
     }
+
   }
   const addProductToFavorite = () => {
 
