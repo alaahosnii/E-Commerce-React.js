@@ -36,7 +36,7 @@ function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetai
       const dateNow = new Date();
       const difference = salesExpiryDate - dateNow;
       console.log(difference);
-      
+
       if (difference > 0) {
         setRemainingDate({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -51,8 +51,9 @@ function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetai
           minutes: 0,
           seconds: 0
         })
-        clearInterval(id);
       }
+      clearInterval(id);
+
 
     }, 1000);
 

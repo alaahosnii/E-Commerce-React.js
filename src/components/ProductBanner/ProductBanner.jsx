@@ -49,9 +49,9 @@ function ProductBanner() {
           minutes: 0,
           seconds: 0
         })
-        clearInterval(id);
       }
 
+      clearInterval(id);
 
     }, 1000);
 
