@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://e-commerce-react-js-eight.vercel.app",
+    baseURL: "https://node-js-e-comm-server.onrender.com",
     headers: {
         "Content-Type": "application/json",
     }
