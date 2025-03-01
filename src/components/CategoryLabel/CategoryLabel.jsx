@@ -8,7 +8,7 @@ function CategoryLabel({ products = [], isNewArrival = false, isFromProductDetai
   const { setProductsInRoutes } = useContext(ProductsInRoutesContext);
   const navigate = useNavigate();
   const dateNow = new Date();
-  const salesExpiryDate = new Date("2025-03-01T08:15:00");
+  const salesExpiryDate = new Date("2025-03-05T08:15:00");
   const difference = salesExpiryDate - dateNow;
   const [remainingDate, setRemainingDate] = useState({
     days: difference > 0 ? Math.floor(difference / (1000 * 60 * 60 * 24)) : 0,
