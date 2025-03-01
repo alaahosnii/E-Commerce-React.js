@@ -8,35 +8,37 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getLoggedInUser } from '@/redux/slices/AuthSlice'
 import { addCartToDataBase, getCartFromDB, resetActionToChangeCart } from '@/redux/slices/CartSlice'
 import { toast } from 'react-toastify'
+import { getFavoritesFromDB } from '@/redux/slices/FavoriteSlice'
+import { addFavoritesToDB, resetIsChangeInLocalFavorite } from '@/redux/slices/FavoriteSlice'
+
 function Layout() {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const authState = useSelector((state) => state.auth);
+  const favorites = useSelector((state) => state.favorite.products);
+  const isChangeInLocalFavorite = useSelector((state) => state.favorite.isChangeInLocalFavorite);
   console.log(cartState.localCart);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    console.log("logged");
-
     if (token) {
       dispatch(getLoggedInUser());
       dispatch(getCartFromDB());
+      dispatch(getFavoritesFromDB());
     }
 
 
   }, [authState.token]);
 
-  // useEffect(() => {
-  //   console.log("sss");
+  useEffect(() => {
+    if (favorites.length >= 0 && isChangeInLocalFavorite) {
 
-  //   if (authState.token) {
-  //     console.log("token", authState.token);
-
-  //     // dispatch(getLoggedInUser());
-  //     dispatch(getCartFromDB());
-
-  //   }
-  // }, [authState.token]);
+      dispatch(addFavoritesToDB(favorites))
+        .unwrap().then(() => {
+          dispatch(resetIsChangeInLocalFavorite());
+        })
+    }
+  }, [favorites]);
 
   useEffect(() => {
     if (authState.getLoggedInUserError) {
@@ -47,7 +49,6 @@ function Layout() {
     console.log(cartState.isAddToLocalCart);
 
     if ((cartState.isAddToLocalCart || cartState.actionToChangeCart) && cartState.localCart.products.length >= 0) {
-      console.log("nnnnhhhhhh");
 
       dispatch(addCartToDataBase({
         products: cartState.localCart.products,
@@ -61,8 +62,6 @@ function Layout() {
   }, [cartState.localCart]);
 
   useEffect(() => {
-    console.log("cartState.addCartToDBSuccess", cartState.addCartToDBSuccess);
-
     if (cartState.addCartToDBSuccess) {
 
       dispatch(getCartFromDB());

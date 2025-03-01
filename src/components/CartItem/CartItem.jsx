@@ -37,7 +37,7 @@ function CartItem({ product }) {
       <div className='col-3 text-center d-flex align-items-center justify-content-center'>
         <div className='d-flex w-75 align-items-center'>
           <div className='position-relative' >
-            <img className='me-3' src={cartProduct} width={"40px"} height={"30px"} />
+            <img className='me-3' src={product.imageUrl} width={"40px"} height={"40px"} />
             <div onClick={() => deleteProduct(product.id)} className="btn text-white position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
               X
             </div>

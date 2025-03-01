@@ -33,7 +33,7 @@ function CartSummary() {
         </div>
       </div>
       <div className='d-flex justify-content-center mt-3'>
-        <button onClick={() => navigate("/checkout")} className='btn btn-danger' type="button">Proceed to Checkout</button>
+        <button disabled = {cartState.localCart.products.length == 0} onClick={() => navigate("/checkout")} className='btn btn-danger' type="button">Proceed to Checkout</button>
       </div>
     </div>
   )

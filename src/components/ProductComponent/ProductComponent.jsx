@@ -17,7 +17,8 @@ import { Button } from 'react-bootstrap'
 function ProductComponent({ product, isWishList = false, isFlashSale = false }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const favoriteProduct = useSelector((state) => state.favorite.products).find((favProduct) => favProduct.id == product.id);
+  const favorites = useSelector((state) => state.favorite.products);  
+  const favoriteProduct = favorites.find((favProduct) => favProduct.id == product.id);
   const authState = useSelector((state) => state.auth);
   const addProductToCart = (e) => {
     e.stopPropagation();
