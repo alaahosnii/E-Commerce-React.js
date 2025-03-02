@@ -5,6 +5,7 @@ import {  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '@/redux/slices/AuthSlice';
 import { toast } from 'react-toastify';
+import { resetLoginError } from '@/redux/slices/AuthSlice';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -15,6 +16,11 @@ function LoginForm() {
     console.log("loading");
   }
 
+  useEffect(() => {
+    if (loginError) {
+      dispatch(resetLoginError());
+    }
+  } , [])
   useEffect(() => {
     if (isLoginLoading) {
       let idd;
