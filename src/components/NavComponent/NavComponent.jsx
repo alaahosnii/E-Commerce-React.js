@@ -13,6 +13,7 @@ import logOutIcon from '@/assets/logout_icon.png';
 import userNavIcon from '@/assets/user.png';
 import { logoutUser } from '@/redux/slices/AuthSlice';
 import { removeLocalCart } from '@/redux/slices/CartSlice';
+import { removeLocalFavorite } from '@/redux/slices/FavoriteSlice';
 function NavComponent() {
   const { theme } = useContext(ThemeContext);
   const cartState = useSelector((state) => state.cart);
@@ -28,31 +29,8 @@ function NavComponent() {
   const logout = () => {
     dispatch(logoutUser());
     dispatch(removeLocalCart());
+    dispatch(removeLocalFavorite());
   }
-
-  // useEffect(() => {
-
-  //   if (cartState.localCart && cartState.localCart.products.length > 0) {
-  //     console.log("cccc");
-
-  //     setUserCart(cartState.localCart);
-
-  //   }
-  // }, [cartState.localCart]);
-
-
-
-  // useEffect(() => {
-
-  //   if (cartState.cartFromDB && cartState.cartFromDB.products.length > 0) {
-  //     console.log("bbb");
-  //     console.log("from db", cartState.cartFromDB);
-
-  //     setUserCart(cartState.cartFromDB);
-
-  //   }
-
-  // }, [cartState.cartFromDB]);
 
   return (
     <div className={`d-flex justify-content-between align-items-center ${authState.getLoggedInUserLoading && styles.blurLoading} ${theme == "dark" ? styles.navBarDark : styles.navBar}`}>

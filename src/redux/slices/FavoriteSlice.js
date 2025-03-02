@@ -42,6 +42,9 @@ const slice = createSlice({
         resetIsChangeInLocalFavorite: (state) => {
             state.isChangeInLocalFavorite = false
         },
+        removeLocalFavorite: (state) => {
+            state.products = [];
+        },
         addToFavorite: (state, action) => {
             state.products.push(action.payload);
             state.isChangeInLocalFavorite = true
@@ -86,5 +89,5 @@ const slice = createSlice({
     }
 });
 
-export const { addToFavorite , resetIsChangeInLocalFavorite, removeFromFavorite } = slice.actions;
+export const { addToFavorite , removeLocalFavorite , resetIsChangeInLocalFavorite, removeFromFavorite } = slice.actions;
 export default slice.reducer;
