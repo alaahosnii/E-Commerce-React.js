@@ -78,7 +78,7 @@ function NavComponent() {
             </li>
             :
             <li>
-              <NavLink to="/SignUp" className={({ isActive }) => isActive ? styles.navActive : styles.navDefault}>Sign Up</NavLink>
+              <NavLink to="/signup" className={({ isActive }) => isActive ? styles.navActive : styles.navDefault}>Sign Up</NavLink>
             </li>
         }
 

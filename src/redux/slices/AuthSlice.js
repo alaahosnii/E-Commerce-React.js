@@ -3,7 +3,7 @@ import axiosInstance from "@/utils/axiosInstance.js";
 
 export const loginUser = createAsyncThunk(
     "auth/loginUser",
-    async (user, {rejectWithValue}) => {
+    async (user, { rejectWithValue }) => {
         try {
             const response = await axiosInstance.post("/auth/login", user);
             return response.data;
@@ -73,6 +73,10 @@ const authSlice = createSlice({
         logoutUser: (state) => {
             state.user = null;
             localStorage.removeItem("token");
+        },
+
+        changeRegisterStatus: (state) => {
+            state.registerStatus = false;
         }
     },
 
@@ -139,5 +143,5 @@ const authSlice = createSlice({
     }
 });
 
-export const { logoutUser } = authSlice.actions;
+export const { logoutUser  , changeRegisterStatus} = authSlice.actions;
 export default authSlice.reducer;

@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '@/redux/slices/AuthSlice';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { changeRegisterStatus } from '@/redux/slices/AuthSlice';
 function SignUpForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,8 +17,12 @@ function SignUpForm() {
   useEffect(() => {
     if (registerStatus) {
       navigate("/Login");
+      return () => {
+        dispatch(changeRegisterStatus());
+      }
     }
   }, [registerStatus]);
+
   return (
     <div>
       <Formik
