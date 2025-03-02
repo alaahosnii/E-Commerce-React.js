@@ -20,8 +20,6 @@ function FlashSaleLabel() {
     const id = setInterval(() => {
       const dateNow = new Date();
       const difference = salesExpiryDate - dateNow;
-      console.log(difference);
-
       if (difference > 0) {
         setRemainingDate({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -43,7 +41,6 @@ function FlashSaleLabel() {
     }, 1000);
 
     return () => {
-      console.log("clearing interval from flash", id);
       clearInterval(id);
     }
   }, [])

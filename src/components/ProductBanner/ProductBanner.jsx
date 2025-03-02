@@ -39,7 +39,6 @@ function ProductBanner() {
     }, 1000);
 
     return () => {
-      console.log("clearing interval", id);
       clearInterval(id);
     }
   }, []);
