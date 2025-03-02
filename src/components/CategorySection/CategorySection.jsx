@@ -4,15 +4,21 @@ import ProductComponent from '@/components/ProductComponent/ProductComponent.jsx
 import { useNavigate } from 'react-router-dom';
 import { ProductsInRoutesContext } from '@/contexts/ProductsInRoutesContext';
 import { Button } from 'react-bootstrap';
+import FlashSaleLabel from '@/components/FlashSaleLabel/FlashSaleLabel';
 
-function CategorySection({ products, error, categoryName, description, style, isExplore = false, isBestSelling = false }) {
+function CategorySection({ products, error, isFlash, categoryName, description, style, isExplore = false, isBestSelling = false }) {
   const { setProductsInRoutes } = useContext(ProductsInRoutesContext);
   const navigate = useNavigate();
 
 
   return (
     <div style={style}>
-      <CategoryLabel products={products} isExplore={isExplore} isBestSelling={isBestSelling} categoryName={categoryName} description={description} />
+      {
+        isFlash ? <FlashSaleLabel />
+          :
+          <CategoryLabel products={products} isExplore={isExplore} isBestSelling={isBestSelling} categoryName={categoryName} description={description} />
+
+      }
       <div className={`d-flex ${!isBestSelling && "overflow-auto gap-5"} ${(isBestSelling || isExplore) && "flex-wrap justify-content-between"} mt-4`}>
         {
           !isBestSelling ?

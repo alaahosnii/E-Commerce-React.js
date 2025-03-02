@@ -55,6 +55,7 @@ function Home() {
 
       <CategorySection
         style={{ marginTop: "150px" }}
+        isFlash = {true}
         categoryName={"Today's"}
         description={"Flash Sales"}
         products={flashSalesProducts}
